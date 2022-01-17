@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_091smjn" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0" camunda:diagramRelationId="0917f4d5-12a3-4dcf-bbc6-755b44e1e415">
+  <bpmn:collaboration id="Collaboration_1mtyfax">
+    <bpmn:participant id="idBuyBook" name="Buy Book" processRef="procidBuyBook">
+      <bpmn:documentation># Buying books</bpmn:documentation>
+    </bpmn:participant>
+  </bpmn:collaboration>
+  <bpmn:process id="procidBuyBook" name="Buy Book" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0961h1o">
+      <bpmn:lane id="userLane" name="User">
+        <bpmn:flowNodeRef>StartEvent_0nfzwwa</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_004uqat</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskSelectBook</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskSelectDelivery</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskAddShippingInfo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskSelectPickUpStore</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskPayBook</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1ft060i</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="officeLane" name="Office">
+        <bpmn:flowNodeRef>EndEvent_06n2rd9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskHandleOrder</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskUpdateSystems</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskNotifyClient</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:sequenceFlow id="SequenceFlow_1x6ds2d" sourceRef="TaskPayBook" targetRef="TaskUpdateSystems" />
+    <bpmn:startEvent id="StartEvent_0nfzwwa">
+      <bpmn:outgoing>SequenceFlow_084seur</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_004uqat">
+      <bpmn:incoming>SequenceFlow_0w512w5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0de8rzd</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1lco8c4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="TaskSelectBook" name="Select Book" camunda:candidateGroups="ROLE_USER">
+      <bpmn:incoming>SequenceFlow_084seur</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1jgyvbp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="TaskSelectDelivery" name="Select Delivery Method" camunda:candidateGroups="ROLE_USER">
+      <bpmn:incoming>SequenceFlow_1jgyvbp</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0w512w5</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0zqlhgm">
+        <bpmn:targetRef>DataObjectReference_1onfsdq</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_084seur" sourceRef="StartEvent_0nfzwwa" targetRef="TaskSelectBook" />
+    <bpmn:sequenceFlow id="SequenceFlow_1jgyvbp" sourceRef="TaskSelectBook" targetRef="TaskSelectDelivery" />
+    <bpmn:sequenceFlow id="SequenceFlow_0w512w5" sourceRef="TaskSelectDelivery" targetRef="ExclusiveGateway_004uqat" />
+    <bpmn:sequenceFlow id="SequenceFlow_0de8rzd" sourceRef="ExclusiveGateway_004uqat" targetRef="TaskAddShippingInfo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${pi.getBuyBook().getDeliveryHome()}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1lco8c4" sourceRef="ExclusiveGateway_004uqat" targetRef="TaskSelectPickUpStore">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!pi.getBuyBook().getDeliveryHome()}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1rb5huf" sourceRef="TaskAddShippingInfo" targetRef="ExclusiveGateway_1ft060i" />
+    <bpmn:sequenceFlow id="SequenceFlow_0baqd1r" sourceRef="TaskSelectPickUpStore" targetRef="ExclusiveGateway_1ft060i" />
+    <bpmn:sequenceFlow id="SequenceFlow_1b76xne" sourceRef="ExclusiveGateway_1ft060i" targetRef="TaskPayBook" />
+    <bpmn:userTask id="TaskAddShippingInfo" name="Add Shipping Info" camunda:candidateGroups="ROLE_USER">
+      <bpmn:incoming>SequenceFlow_0de8rzd</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1rb5huf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="TaskSelectPickUpStore" name="Select Pick-up Store" camunda:candidateGroups="ROLE_USER">
+      <bpmn:incoming>SequenceFlow_1lco8c4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0baqd1r</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="TaskPayBook" name="Pay Book" camunda:candidateGroups="ROLE_USER">
+      <bpmn:documentation>sdfsdfsf</bpmn:documentation>
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="xxxxx" value="yyyyy" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1b76xne</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1x6ds2d</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_06n2rd9">
+      <bpmn:incoming>SequenceFlow_1f0j056</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="TaskHandleOrder" name="Handle Order" camunda:candidateGroups="ROLE_ADMIN">
+      <bpmn:incoming>SequenceFlow_11iggq4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1btbdcy</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="TaskUpdateSystems" name="Update Systems" camunda:delegateExpression="${updateSystems}">
+      <bpmn:incoming>SequenceFlow_1x6ds2d</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_11iggq4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="TaskNotifyClient" name="Notify Client" camunda:delegateExpression="${notifyClient}">
+      <bpmn:incoming>SequenceFlow_1btbdcy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1f0j056</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1btbdcy" sourceRef="TaskHandleOrder" targetRef="TaskNotifyClient" />
+    <bpmn:sequenceFlow id="SequenceFlow_1f0j056" sourceRef="TaskNotifyClient" targetRef="EndEvent_06n2rd9" />
+    <bpmn:sequenceFlow id="SequenceFlow_11iggq4" sourceRef="TaskUpdateSystems" targetRef="TaskHandleOrder" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1ft060i">
+      <bpmn:incoming>SequenceFlow_1rb5huf</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0baqd1r</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1b76xne</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:dataObjectReference id="DataObjectReference_1onfsdq" dataObjectRef="DataObject_0vbspl4">
+      <bpmn:documentation>xxxxx</bpmn:documentation>
+    </bpmn:dataObjectReference>
+    <bpmn:dataObject id="DataObject_0vbspl4" />
+    <bpmn:association id="Association_0ao8u0o" sourceRef="TaskSelectBook" targetRef="TextAnnotation_1urabg5" />
+    <bpmn:textAnnotation id="TextAnnotation_1urabg5">
+      <bpmn:text>A Book has, title, price, author, pubYear, publisher</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1j9nrnb">
+      <bpmn:text>A User has an email, address</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0gcfhul" sourceRef="TaskAddShippingInfo" targetRef="TextAnnotation_1j9nrnb" />
+    <bpmn:association id="Association_15bp1ur" sourceRef="TaskSelectPickUpStore" targetRef="TextAnnotation_0c6gsrt" />
+    <bpmn:association id="Association_0elw7j7" sourceRef="TaskPayBook" targetRef="TextAnnotation_0qt7gfo" />
+    <bpmn:association id="Association_1j5htgr" sourceRef="TaskUpdateSystems" targetRef="TextAnnotation_06jm6jw" />
+    <bpmn:textAnnotation id="TextAnnotation_0c6gsrt">
+      <bpmn:text>a Store has a name, address</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0qt7gfo">
+      <bpmn:text>A User also has a CC number,  CC Name on Card, CC Expiry Date, CCV</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_06jm6jw">
+      <bpmn:text>Call Rest APIs to update Inventory and Order2Cash</bpmn:text>
+    </bpmn:textAnnotation>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1mtyfax">
+      <bpmndi:BPMNShape id="Participant_11jrifc_di" bpmnElement="idBuyBook" isHorizontal="true">
+        <dc:Bounds x="152" y="79" width="1258" height="618" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1p336gn_di" bpmnElement="officeLane" isHorizontal="true">
+        <dc:Bounds x="182" y="440" width="1228" height="257" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1l0e9aa_di" bpmnElement="userLane" isHorizontal="true">
+        <dc:Bounds x="182" y="79" width="1228" height="361" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_11iggq4_di" bpmnElement="SequenceFlow_11iggq4">
+        <di:waypoint x="980" y="580" />
+        <di:waypoint x="1010" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1f0j056_di" bpmnElement="SequenceFlow_1f0j056">
+        <di:waypoint x="1250" y="580" />
+        <di:waypoint x="1282" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1btbdcy_di" bpmnElement="SequenceFlow_1btbdcy">
+        <di:waypoint x="1110" y="580" />
+        <di:waypoint x="1150" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1b76xne_di" bpmnElement="SequenceFlow_1b76xne">
+        <di:waypoint x="845" y="230" />
+        <di:waypoint x="880" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0baqd1r_di" bpmnElement="SequenceFlow_0baqd1r">
+        <di:waypoint x="740" y="340" />
+        <di:waypoint x="820" y="340" />
+        <di:waypoint x="820" y="255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1rb5huf_di" bpmnElement="SequenceFlow_1rb5huf">
+        <di:waypoint x="740" y="230" />
+        <di:waypoint x="795" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lco8c4_di" bpmnElement="SequenceFlow_1lco8c4">
+        <di:waypoint x="580" y="255" />
+        <di:waypoint x="580" y="340" />
+        <di:waypoint x="640" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0de8rzd_di" bpmnElement="SequenceFlow_0de8rzd">
+        <di:waypoint x="605" y="230" />
+        <di:waypoint x="640" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0w512w5_di" bpmnElement="SequenceFlow_0w512w5">
+        <di:waypoint x="520" y="230" />
+        <di:waypoint x="555" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jgyvbp_di" bpmnElement="SequenceFlow_1jgyvbp">
+        <di:waypoint x="390" y="230" />
+        <di:waypoint x="420" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_084seur_di" bpmnElement="SequenceFlow_084seur">
+        <di:waypoint x="268" y="230" />
+        <di:waypoint x="290" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1x6ds2d_di" bpmnElement="SequenceFlow_1x6ds2d">
+        <di:waypoint x="930" y="270" />
+        <di:waypoint x="930" y="540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="StartEvent_0nfzwwa_di" bpmnElement="StartEvent_0nfzwwa">
+        <dc:Bounds x="232" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_004uqat_di" bpmnElement="ExclusiveGateway_004uqat" isMarkerVisible="true">
+        <dc:Bounds x="555" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1h6419t_di" bpmnElement="TaskSelectBook">
+        <dc:Bounds x="290" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_06gxplt_di" bpmnElement="TaskSelectDelivery">
+        <dc:Bounds x="420" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1suauss_di" bpmnElement="TaskAddShippingInfo">
+        <dc:Bounds x="640" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0le86hq_di" bpmnElement="TaskSelectPickUpStore">
+        <dc:Bounds x="640" y="300" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1vn9pqz_di" bpmnElement="TaskPayBook">
+        <dc:Bounds x="880" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_06n2rd9_di" bpmnElement="EndEvent_06n2rd9">
+        <dc:Bounds x="1282" y="562" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1qm7jx4_di" bpmnElement="TaskHandleOrder">
+        <dc:Bounds x="1010" y="540" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1h9tq85_di" bpmnElement="TaskUpdateSystems">
+        <dc:Bounds x="880" y="540" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="SendTask_15sc91x_di" bpmnElement="TaskNotifyClient">
+        <dc:Bounds x="1150" y="540" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1tnwccf_di" bpmnElement="ExclusiveGateway_1ft060i" isMarkerVisible="true">
+        <dc:Bounds x="795" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1onfsdq_di" bpmnElement="DataObjectReference_1onfsdq">
+        <dc:Bounds x="372" y="325" width="36" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1urabg5_di" bpmnElement="TextAnnotation_1urabg5">
+        <dc:Bounds x="360" y="90" width="150" height="59" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1j9nrnb_di" bpmnElement="TextAnnotation_1j9nrnb">
+        <dc:Bounds x="720" y="110" width="99.99274099883856" height="39.48896631823461" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0c6gsrt_di" bpmnElement="TextAnnotation_0c6gsrt">
+        <dc:Bounds x="500" y="390" width="99.99274099883856" height="39.48896631823461" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0qt7gfo_di" bpmnElement="TextAnnotation_0qt7gfo">
+        <dc:Bounds x="1090" y="110" width="180" height="61" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_06jm6jw_di" bpmnElement="TextAnnotation_06jm6jw">
+        <dc:Bounds x="710" y="510" width="99.99274099883856" height="67.36353077816493" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0ao8u0o_di" bpmnElement="Association_0ao8u0o">
+        <di:waypoint x="375" y="190" />
+        <di:waypoint x="410" y="149" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0gcfhul_di" bpmnElement="Association_0gcfhul">
+        <di:waypoint x="722" y="190" />
+        <di:waypoint x="754" y="149" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_15bp1ur_di" bpmnElement="Association_15bp1ur">
+        <di:waypoint x="640" y="365" />
+        <di:waypoint x="590" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0elw7j7_di" bpmnElement="Association_0elw7j7">
+        <di:waypoint x="980" y="212" />
+        <di:waypoint x="1096" y="171" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1j5htgr_di" bpmnElement="Association_1j5htgr">
+        <di:waypoint x="880" y="569" />
+        <di:waypoint x="810" y="555" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0zqlhgm_di" bpmnElement="DataOutputAssociation_0zqlhgm">
+        <di:waypoint x="443" y="270" />
+        <di:waypoint x="405" y="325" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

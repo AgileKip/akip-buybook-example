@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "fieldName": "purpose",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deliveryHome",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deliveryAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purchaseReview",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "book",
+      "otherEntityRelationshipName": "buyBook",
+      "relationshipName": "book",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "store",
+      "otherEntityRelationshipName": "buyBook",
+      "relationshipName": "store",
+      "otherEntityField": "name"
+    }
+  ],
+  "entityType": "domain",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "BuyBook",
+  "changelogDate": "20210401000001",
+  "skipFakeData": true
+}

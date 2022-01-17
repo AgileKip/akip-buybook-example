@@ -1,0 +1,30 @@
+{
+  "fields": [
+    {
+      "fieldName": "purpose",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "procidBuyBook",
+  "processEntityName": "BuyBookBinding",
+  "domainEntityName": "BuyBook",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "StartForm",
+  "changelogDate": "20210401000002",
+  "skipFakeData": true
+}

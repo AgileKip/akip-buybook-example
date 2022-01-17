@@ -1,0 +1,24 @@
+{
+  "name": "Publisher",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "4",
+      "fieldValidateRulesMaxlength": "80"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "publisher",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "skipFakeData": true,
+  "changelogDate": "20210522223929"
+}

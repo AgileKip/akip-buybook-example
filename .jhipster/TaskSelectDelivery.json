@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "fieldName": "purpose",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "deliveryHome",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "procidBuyBook",
+  "processEntityName": "BuyBookBinding",
+  "taskBpmnId": "TaskSelectDelivery",
+  "domainEntityName": "BuyBook",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskSelectDelivery",
+  "changelogDate": "20210401000004"
+}

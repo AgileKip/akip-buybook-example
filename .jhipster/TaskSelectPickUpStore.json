@@ -1,0 +1,31 @@
+{
+  "fields": [
+    {
+      "fieldName": "purpose",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "store",
+      "otherEntityRelationshipName": "taskSelectPickUpStore",
+      "relationshipName": "store",
+      "otherEntityField": "name"
+    }
+  ],
+  "entityType": "user-task-form",
+  "processBpmnId": "procidBuyBook",
+  "processEntityName": "BuyBookBinding",
+  "taskBpmnId": "TaskSelectPickUpStore",
+  "domainEntityName": "BuyBook",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskSelectPickUpStore",
+  "changelogDate": "20210401000004"
+}

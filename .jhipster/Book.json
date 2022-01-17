@@ -1,0 +1,54 @@
+{
+  "name": "Book",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "pubYear",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMin": "1800",
+      "fieldValidateRulesMax": "2022"
+    },
+    {
+      "fieldName": "cover",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "author",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "publisher",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "publisher",
+      "otherEntityField": "name"
+    }
+  ],
+  "entityTableName": "book",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "skipFakeData": true,
+  "changelogDate": "20210514211116"
+}

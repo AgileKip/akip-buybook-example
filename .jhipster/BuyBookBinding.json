@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "fieldName": "purpose",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deliveryHome",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deliveryAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purchaseReview",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "process-binding",
+  "processBpmnId": "procidBuyBook",
+  "domainEntityName": "BuyBook",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "BuyBookBinding",
+  "changelogDate": "20210401000002",
+  "skipFakeData": true
+}

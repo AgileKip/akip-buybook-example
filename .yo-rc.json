@@ -1,0 +1,57 @@
+{
+  "generator-jhipster": {
+    "skipJhipsterDependencies": true,
+    "blueprints": [
+      {
+        "name": "generator-jhipster-agilekip",
+        "version": "0.0.12"
+      }
+    ],
+    "otherModules": [
+      {
+        "name": "generator-jhipster-agilekip",
+        "version": "0.0.12"
+      }
+    ],
+    "applicationType": "monolith",
+    "baseName": "BuyBook",
+    "jhipsterVersion": "7.0.1",
+    "skipClient": false,
+    "skipServer": false,
+    "skipUserManagement": false,
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "testFrameworks": [],
+    "pages": [],
+    "creationTimestamp": 1642439693933,
+    "serviceDiscoveryType": false,
+    "reactive": false,
+    "authenticationType": "jwt",
+    "packageName": "org.agilekip.tutorials.buybook",
+    "serverPort": "8080",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "buildTool": "maven",
+    "serverSideOptions": [],
+    "websocket": false,
+    "searchEngine": false,
+    "messageBroker": false,
+    "enableSwaggerCodegen": false,
+    "clientFramework": "vue",
+    "withAdminUi": true,
+    "clientTheme": "none",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "packageFolder": "org/agilekip/tutorials/buybook",
+    "jwtSecretKey": "Y2U2YjE4ZjMwYTBkZGI5N2U4Y2M1ZjUxZjU2NDVkNTU3ZWYxYzRjZjcwZmIyM2ZmZTY5ODg0NTZmNDU0ZmM5MDNhYTY0ZWIwYjIxMmEwZmM4ZDAxMDhmNWZmOTVjMDYyMjQ5NzFlM2VkMzQ3MjFjYWQ4MTUzMmQ2NzVlYjFlMzc=",
+    "clientPackageManager": "npm",
+    "clientThemeVariant": "",
+    "languages": ["en", "fr", "pt-br", "es"]
+  }
+}
