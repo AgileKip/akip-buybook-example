@@ -12,6 +12,18 @@
         "processInstance": "Process Instances",
         "taskInstance": "All Tasks",
         "myCandidateTasks": "My Tasks",
+        "buyBook": "Buy Book",
+        "startForm": "Start Form",
+        "buyBookBinding": "Buy Book Binding",
+        "taskSelectBook": "Task Select Book",
+        "taskPayBook": "Task Pay Book",
+        "taskHandleOrder": "Task Handle Order",
+        "taskSelectPickUpStore": "Task Select Pick Up Store",
+        "taskAddShippingInfo": "Task Add Shipping Info",
+        "taskSelectDelivery": "Task Select Delivery",
+        "book": "Book",
+        "publisher": "Publisher",
+        "store": "Store",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskPayBook": {
+      "home": {
+        "title": "Task Pay Books",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Task Pay Book",
+        "createOrEditLabel": "Crear o editar Task Pay Book",
+        "notFound": "Ningún Task Pay Books encontrado"
+      },
+      "created": "Un nuevo Task Pay Book ha sido creado con el identificador {{ param }}",
+      "updated": "Un Task Pay Book ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Task Pay Book ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Task Pay Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Pay Book"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "paymentDetails": "Payment Details"
+    }
+  }
+}

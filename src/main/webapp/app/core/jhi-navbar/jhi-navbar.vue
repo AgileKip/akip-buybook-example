@@ -33,6 +33,22 @@
             <font-awesome-icon icon="th-list" />
             <span class="no-bold" v-text="$t('global.menu.entities.main')">Entities</span>
           </span>
+          <b-dropdown-item to="/buy-book">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.entities.buyBook')">Buy Book</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/book">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.entities.book')">Book</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/publisher">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.entities.publisher')">Publisher</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/store">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.entities.store')">Store</span>
+          </b-dropdown-item>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
         </b-nav-item-dropdown>
         <b-nav-item-dropdown

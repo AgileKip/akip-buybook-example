@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskSelectBook": {
+      "home": {
+        "title": "Task Select Books",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Select Book",
+        "createOrEditLabel": "Create or edit a Task Select Book",
+        "notFound": "No Task Select Books found"
+      },
+      "created": "A new Task Select Book is created with identifier {{ param }}",
+      "updated": "A Task Select Book is updated with identifier {{ param }}",
+      "deleted": "A Task Select Book is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Select Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Select Book"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "book": "Book"
+    }
+  }
+}

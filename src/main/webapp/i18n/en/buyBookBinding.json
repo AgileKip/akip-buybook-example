@@ -1,0 +1,30 @@
+{
+  "buyBookApp": {
+    "buyBookBinding": {
+      "home": {
+        "title": "Buy Book Bindings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Buy Book Binding",
+        "createOrEditLabel": "Create or edit a Buy Book Binding",
+        "notFound": "No Buy Book Bindings found"
+      },
+      "created": "A new Buy Book Binding is created with identifier {{ param }}",
+      "updated": "A Buy Book Binding is updated with identifier {{ param }}",
+      "deleted": "A Buy Book Binding is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Buy Book Binding {{ id }}?"
+      },
+      "detail": {
+        "title": "Buy Book Binding"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "description": "Description",
+      "date": "Date",
+      "deliveryHome": "Delivery Home",
+      "deliveryAddress": "Delivery Address",
+      "paymentDetails": "Payment Details",
+      "purchaseReview": "Purchase Review"
+    }
+  }
+}

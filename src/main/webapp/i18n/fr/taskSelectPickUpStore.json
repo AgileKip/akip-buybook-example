@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskSelectPickUpStore": {
+      "home": {
+        "title": "TaskSelectPickUpStores",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Task Select Pick Up Store",
+        "createOrEditLabel": "Créer ou éditer un Task Select Pick Up Store",
+        "notFound": "Aucun Task Select Pick Up Store trouvé"
+      },
+      "created": "Un nouveau Task Select Pick Up Store a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Select Pick Up Store avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Select Pick Up Store avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Select Pick Up Store {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Select Pick Up Store"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "store": "Store"
+    }
+  }
+}

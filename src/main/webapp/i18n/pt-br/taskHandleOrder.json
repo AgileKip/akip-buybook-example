@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskHandleOrder": {
+      "home": {
+        "title": "Task Handle Orders",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Task Handle Order",
+        "createOrEditLabel": "Criar ou editar Task Handle Order",
+        "notFound": "Nenhum Task Handle Order encontrado"
+      },
+      "created": "Um novo Task Handle Order foi criado com o identificador {{ param }}",
+      "updated": "Um Task Handle Order foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Task Handle Order foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Task Handle Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Handle Order"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "purchaseReview": "Purchase Review"
+    }
+  }
+}

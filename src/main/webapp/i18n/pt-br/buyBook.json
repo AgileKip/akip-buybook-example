@@ -1,0 +1,32 @@
+{
+  "buyBookApp": {
+    "buyBook": {
+      "home": {
+        "title": "Buy Books",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Buy Book",
+        "createOrEditLabel": "Criar ou editar Buy Book",
+        "notFound": "Nenhum Buy Book encontrado"
+      },
+      "created": "Um novo Buy Book foi criado com o identificador {{ param }}",
+      "updated": "Um Buy Book foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Buy Book foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Buy Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Buy Book"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "description": "Description",
+      "date": "Date",
+      "deliveryHome": "Delivery Home",
+      "deliveryAddress": "Delivery Address",
+      "paymentDetails": "Payment Details",
+      "purchaseReview": "Purchase Review",
+      "book": "Book",
+      "store": "Store"
+    }
+  }
+}

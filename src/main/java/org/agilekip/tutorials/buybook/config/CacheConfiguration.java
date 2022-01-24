@@ -48,6 +48,11 @@ public class CacheConfiguration {
             createCache(cm, org.agilekip.tutorials.buybook.domain.User.class.getName());
             createCache(cm, org.agilekip.tutorials.buybook.domain.Authority.class.getName());
             createCache(cm, org.agilekip.tutorials.buybook.domain.User.class.getName() + ".authorities");
+            createCache(cm, org.agilekip.tutorials.buybook.domain.BuyBook.class.getName());
+            createCache(cm, org.agilekip.tutorials.buybook.domain.BuyBookBinding.class.getName());
+            createCache(cm, org.agilekip.tutorials.buybook.domain.Book.class.getName());
+            createCache(cm, org.agilekip.tutorials.buybook.domain.Publisher.class.getName());
+            createCache(cm, org.agilekip.tutorials.buybook.domain.Store.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

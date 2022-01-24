@@ -1,0 +1,26 @@
+{
+  "buyBookApp": {
+    "startForm": {
+      "home": {
+        "title": "Start Forms",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Start Form",
+        "createOrEditLabel": "Criar ou editar Start Form",
+        "notFound": "Nenhum Start Form encontrado"
+      },
+      "created": "Um novo Start Form foi criado com o identificador {{ param }}",
+      "updated": "Um Start Form foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Start Form foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Start Form"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "description": "Description",
+      "date": "Date"
+    }
+  }
+}

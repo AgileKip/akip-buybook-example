@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title>Buy BookSummary</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p>Dear BookStore User</p>
+    <p>Here is a summary of your purchase <b th:text="${buyBook.purpose}">purpose</b></p>
+    <ul>
+      <li><b>Description</b>: <span th:text="${buyBook.description }"></span></li>
+      <li><b>Date</b>: <span th:text="${buyBook.date }"></span></li>
+      <li><b>Payment</b>: <span th:text="${buyBook.paymentDetails}"></span></li>
+      <li><b>Book</b>: <span th:text="${buyBook.book}"></span></li>
+    </ul>
+
+    <p>
+      Regards,
+      <br />
+      <em>AgileKip Team</em>
+    </p>
+  </body>
+</html>

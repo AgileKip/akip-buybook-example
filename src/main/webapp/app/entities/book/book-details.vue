@@ -1,0 +1,68 @@
+<template>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div v-if="book">
+        <h2 class="jh-entity-heading" data-cy="bookDetailsHeading">
+          <span v-text="$t('buyBookApp.book.detail.title')">Book</span> {{ book.id }}
+        </h2>
+        <dl class="row jh-entity-details">
+          <dt>
+            <span v-text="$t('buyBookApp.book.name')">Name</span>
+          </dt>
+          <dd>
+            <span>{{ book.name }}</span>
+          </dd>
+          <dt>
+            <span v-text="$t('buyBookApp.book.description')">Description</span>
+          </dt>
+          <dd>
+            <span>{{ book.description }}</span>
+          </dd>
+          <dt>
+            <span v-text="$t('buyBookApp.book.pubYear')">Pub Year</span>
+          </dt>
+          <dd>
+            <span>{{ book.pubYear }}</span>
+          </dd>
+          <dt>
+            <span v-text="$t('buyBookApp.book.cover')">Cover</span>
+          </dt>
+          <dd>
+            <div v-if="book.cover">
+              <a v-on:click="openFile(book.coverContentType, book.cover)">
+                <img v-bind:src="'data:' + book.coverContentType + ';base64,' + book.cover" style="max-width: 100%" alt="book image" />
+              </a>
+              {{ book.coverContentType }}, {{ byteSize(book.cover) }}
+            </div>
+          </dd>
+          <dt>
+            <span v-text="$t('buyBookApp.book.author')">Author</span>
+          </dt>
+          <dd>
+            {{ book.author ? book.author.login : '' }}
+          </dd>
+          <dt>
+            <span v-text="$t('buyBookApp.book.publisher')">Publisher</span>
+          </dt>
+          <dd>
+            <div v-if="book.publisher">
+              <router-link :to="{ name: 'PublisherView', params: { publisherId: book.publisher.id } }">{{
+                book.publisher.name
+              }}</router-link>
+            </div>
+          </dd>
+        </dl>
+        <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>
+        </button>
+        <router-link v-if="book.id" :to="{ name: 'BookEdit', params: { bookId: book.id } }" custom v-slot="{ navigate }">
+          <button @click="navigate" class="btn btn-primary">
+            <font-awesome-icon icon="pencil-alt"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.edit')"> Edit</span>
+          </button>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./book-details.component.ts"></script>

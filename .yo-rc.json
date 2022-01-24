@@ -52,6 +52,7 @@
     "jwtSecretKey": "Y2U2YjE4ZjMwYTBkZGI5N2U4Y2M1ZjUxZjU2NDVkNTU3ZWYxYzRjZjcwZmIyM2ZmZTY5ODg0NTZmNDU0ZmM5MDNhYTY0ZWIwYjIxMmEwZmM4ZDAxMDhmNWZmOTVjMDYyMjQ5NzFlM2VkMzQ3MjFjYWQ4MTUzMmQ2NzVlYjFlMzc=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr", "pt-br", "es"]
+    "languages": ["en", "fr", "pt-br", "es"],
+    "entities": ["BuyBook"]
   }
 }

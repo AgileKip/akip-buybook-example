@@ -1,0 +1,30 @@
+{
+  "buyBookApp": {
+    "buyBookBinding": {
+      "home": {
+        "title": "Buy Book Bindings",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Buy Book Binding",
+        "createOrEditLabel": "Crear o editar Buy Book Binding",
+        "notFound": "Ningún Buy Book Bindings encontrado"
+      },
+      "created": "Un nuevo Buy Book Binding ha sido creado con el identificador {{ param }}",
+      "updated": "Un Buy Book Binding ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Buy Book Binding ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Buy Book Binding {{ id }}?"
+      },
+      "detail": {
+        "title": "Buy Book Binding"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "description": "Description",
+      "date": "Date",
+      "deliveryHome": "Delivery Home",
+      "deliveryAddress": "Delivery Address",
+      "paymentDetails": "Payment Details",
+      "purchaseReview": "Purchase Review"
+    }
+  }
+}

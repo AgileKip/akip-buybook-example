@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskAddShippingInfo": {
+      "home": {
+        "title": "TaskAddShippingInfos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Task Add Shipping Info",
+        "createOrEditLabel": "Créer ou éditer un Task Add Shipping Info",
+        "notFound": "Aucun Task Add Shipping Info trouvé"
+      },
+      "created": "Un nouveau Task Add Shipping Info a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Add Shipping Info avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Add Shipping Info avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Add Shipping Info {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Add Shipping Info"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "deliveryAddress": "Delivery Address"
+    }
+  }
+}

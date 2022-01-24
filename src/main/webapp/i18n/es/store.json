@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "store": {
+      "home": {
+        "title": "Stores",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Store",
+        "createOrEditLabel": "Crear o editar Store",
+        "notFound": "Ningún Stores encontrado"
+      },
+      "created": "Un nuevo Store ha sido creado con el identificador {{ param }}",
+      "updated": "Un Store ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Store ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Store {{ id }}?"
+      },
+      "detail": {
+        "title": "Store"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address"
+    }
+  }
+}

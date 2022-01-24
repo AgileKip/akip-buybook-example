@@ -31,6 +31,11 @@ import TranslationService from '@/locale/translation.service';
 import UserOAuth2Service from '@/entities/user/user.oauth2.service';
 /* tslint:disable */
 
+import BuyBookService from '@/entities/buy-book/buy-book.service';
+import BuyBookBindingService from '@/entities/buy-book-binding/buy-book-binding.service';
+import BookService from '@/entities/book/book.service';
+import PublisherService from '@/entities/publisher/publisher.service';
+import StoreService from '@/entities/store/store.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -94,6 +99,11 @@ new Vue({
 
     userOAuth2Service: () => new UserOAuth2Service(),
     translationService: () => translationService,
+    buyBookService: () => new BuyBookService(),
+    buyBookBindingService: () => new BuyBookBindingService(),
+    bookService: () => new BookService(),
+    publisherService: () => new PublisherService(),
+    storeService: () => new StoreService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

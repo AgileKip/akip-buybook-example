@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskAddShippingInfo": {
+      "home": {
+        "title": "Task Add Shipping Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Add Shipping Info",
+        "createOrEditLabel": "Create or edit a Task Add Shipping Info",
+        "notFound": "No Task Add Shipping Infos found"
+      },
+      "created": "A new Task Add Shipping Info is created with identifier {{ param }}",
+      "updated": "A Task Add Shipping Info is updated with identifier {{ param }}",
+      "deleted": "A Task Add Shipping Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Add Shipping Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Add Shipping Info"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "deliveryAddress": "Delivery Address"
+    }
+  }
+}

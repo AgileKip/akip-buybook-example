@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskSelectDelivery": {
+      "home": {
+        "title": "TaskSelectDeliveries",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Task Select Delivery",
+        "createOrEditLabel": "Créer ou éditer un Task Select Delivery",
+        "notFound": "Aucun Task Select Delivery trouvé"
+      },
+      "created": "Un nouveau Task Select Delivery a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Select Delivery avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Select Delivery avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Select Delivery {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Select Delivery"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "deliveryHome": "Delivery Home"
+    }
+  }
+}

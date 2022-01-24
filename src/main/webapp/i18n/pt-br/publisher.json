@@ -1,0 +1,24 @@
+{
+  "buyBookApp": {
+    "publisher": {
+      "home": {
+        "title": "Publishers",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Publisher",
+        "createOrEditLabel": "Criar ou editar Publisher",
+        "notFound": "Nenhum Publisher encontrado"
+      },
+      "created": "Um novo Publisher foi criado com o identificador {{ param }}",
+      "updated": "Um Publisher foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Publisher foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Publisher {{ id }}?"
+      },
+      "detail": {
+        "title": "Publisher"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}

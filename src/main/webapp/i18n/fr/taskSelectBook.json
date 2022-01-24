@@ -1,0 +1,25 @@
+{
+  "buyBookApp": {
+    "taskSelectBook": {
+      "home": {
+        "title": "TaskSelectBooks",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Task Select Book",
+        "createOrEditLabel": "Créer ou éditer un Task Select Book",
+        "notFound": "Aucun Task Select Book trouvé"
+      },
+      "created": "Un nouveau Task Select Book a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task Select Book avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task Select Book avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task Select Book {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task Select Book"
+      },
+      "id": "ID",
+      "purpose": "Purpose",
+      "book": "Book"
+    }
+  }
+}
